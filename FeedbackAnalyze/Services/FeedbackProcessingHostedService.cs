@@ -129,7 +129,7 @@ public class FeedbackProcessingHostedService : BackgroundService
             var detectSentimentRequest = new DetectSentimentRequest
             {
                 Text = productFeedback.Text,
-                LanguageCode = productFeedback.Language
+                LanguageCode = LanguageCode.En
             };
 
             var response = await _comprehendClient.DetectSentimentAsync(detectSentimentRequest);
@@ -148,7 +148,7 @@ public class FeedbackProcessingHostedService : BackgroundService
             var detectDominantLanguageRequest = new DetectTargetedSentimentRequest
             {
                 Text = productFeedback.Text,
-                LanguageCode = productFeedback.Language
+                LanguageCode = LanguageCode.En
             };
 
             var response = await _comprehendClient.DetectTargetedSentimentAsync(detectDominantLanguageRequest);

@@ -29,6 +29,7 @@ public class FeedbackController : ControllerBase
         var newProductFeedback = new Feedback
         {
             ProductId = request.ProductId,
+            Text = string.Empty,
             OriginalText = request.Text,
             Created = DateTime.UtcNow,
             Status = ProcessingStatus.Created,
@@ -125,7 +126,9 @@ public class FeedbackController : ControllerBase
             Sentiment = tag.Sentiment,
             Tag = tag.Name,
             Sentences = tag.Sentences.Select(x => x.Text).ToList(),
-            FullText = tag.Sentences.First().Feedback.Text
+            FullText = tag.Sentences.First().Feedback.Text,
+            Language = tag.Sentences.First().Feedback.Language,
+            OriginalText = tag.Sentences.First().Feedback.OriginalText
         };
         
         return Ok(result);
@@ -138,6 +141,8 @@ public class FeedbackController : ControllerBase
         public string Sentiment { get; set; }
         public List<string> Sentences { get; set; }
         public string FullText { get; set; }
+        public string Language { get; set; }
+        public string OriginalText { get; set; }
     }
 
     public class GetProductFeedbackModel
