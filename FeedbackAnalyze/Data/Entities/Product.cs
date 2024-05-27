@@ -4,5 +4,5 @@ public class Product : BaseEntity
 {
     public string Name { get; set; }
 
-    public List<ProductFeedback> ProductFeedbacks { get; set; }
+    public List<Feedback> Feedbacks { get; set; }
 }

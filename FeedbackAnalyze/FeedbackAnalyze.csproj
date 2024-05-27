@@ -9,6 +9,7 @@
 
     <ItemGroup>
         <PackageReference Include="AWSSDK.Comprehend" Version="3.7.300.87" />
+        <PackageReference Include="AWSSDK.Translate" Version="3.7.300.95" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.2"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0-preview.3.24172.4" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0-preview.3.24172.4">

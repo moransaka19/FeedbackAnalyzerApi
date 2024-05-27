@@ -1,7 +1,9 @@
 using System.Text.Json.Serialization;
 using Amazon.Comprehend;
+using Amazon.Translate;
 using FeedbackAnalyze.Data;
 using FeedbackAnalyze.Services;
+using FeedbackAnalyze.Services.Stem;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,8 @@ builder.Services.AddDbContext<AppDataContext>(options =>
     options.UseNpgsql(connectionString));
 
 builder.Services.AddScoped<AmazonComprehendClient>();
+builder.Services.AddScoped<AmazonTranslateClient>();
+builder.Services.AddScoped<IPorter2Stemmer, EnglishPorter2Stemmer>();
 builder.Services.AddHostedService<FeedbackProcessingHostedService>();
 
 builder.Services.AddControllers().AddJsonOptions(options =>
